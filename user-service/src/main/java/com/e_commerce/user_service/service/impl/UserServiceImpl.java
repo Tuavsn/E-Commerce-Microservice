@@ -53,8 +53,8 @@ public class UserServiceImpl extends BaseService<User, UserDTO, UUID> implements
     }
 
     @Override
-    public List<UserDTO> findByIdPublic(Set<UUID> id) {
-        List<User> users = (List<User>)userRepository.findAllById(id);
+    public List<UserDTO> findByIdPublic(Set<UUID> ids) {
+        List<User> users = (List<User>)userRepository.findAllById(ids);
         if(users.isEmpty()) {
             throw new NotFoundException("User id not found");
         }

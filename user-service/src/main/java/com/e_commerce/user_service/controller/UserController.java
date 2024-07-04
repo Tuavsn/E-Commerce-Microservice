@@ -2,7 +2,6 @@ package com.e_commerce.user_service.controller;
 
 import com.e_commerce.user_service.dto.UserDTO;
 import com.e_commerce.user_service.entity.User;
-import com.e_commerce.user_service.service.UserService;
 import com.e_commerce.user_service.service.impl.UserServiceImpl;
 import com.microservice.shared_library.controller.BaseController;
 import org.springframework.http.HttpStatus;
@@ -14,7 +13,7 @@ import java.util.Set;
 import java.util.UUID;
 
 @RestController
-@RequestMapping(value = "/")
+@RequestMapping("/user")
 public class UserController extends BaseController<User, UserDTO, UUID> {
 
     private final UserServiceImpl userService;

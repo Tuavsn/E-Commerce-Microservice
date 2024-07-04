@@ -7,9 +7,10 @@ import org.mapstruct.Mapper;
 import org.mapstruct.Named;
 
 import java.util.List;
+import java.util.UUID;
 
 @Mapper(componentModel = "spring")
-public interface UserMapper extends BaseMapper<User, UserDTO> {
+public interface UserMapper extends BaseMapper<User, UserDTO, UUID> {
     @Named("userToUserDTO")
     @Override
     UserDTO toDTO (User user);

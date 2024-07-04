@@ -11,7 +11,7 @@ public interface UserService {
 
     UserDTO update(UserDTO userDTO);
 
-    List<UserDTO> findByIdPublic(Set<UUID> id);
+    List<UserDTO> findByIdPublic(Set<UUID> ids);
 
     UserDTO findByEmail(String email);
 
