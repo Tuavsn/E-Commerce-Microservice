@@ -13,7 +13,7 @@ import java.util.UUID;
 public interface CategoryRepository extends BaseRepository<Category, UUID> {
     @Override
     @Query(
-            "select x from #{#entityName} x where x.deleted = false and (cast(x.id as string) like :search or x.categoryTitle like :search)"
+            "select x from #{#entityName} x where x.deleted = false and (cast(BIN_TO_UUID(x.id) as string) like :search or x.categoryTitle like :search)"
     )
     Page<Category> findContaining(Pageable pageable, String search);
 }

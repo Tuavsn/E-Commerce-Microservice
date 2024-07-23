@@ -5,8 +5,6 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.*;
 
-import java.util.Set;
-
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
@@ -23,5 +21,4 @@ public class CategoryDTO extends BaseDTO {
     private String imageUrl;
 
     private CategoryDTO parentCategory;
-
 }

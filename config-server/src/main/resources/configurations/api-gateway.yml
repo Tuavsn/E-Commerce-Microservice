@@ -1,6 +1,17 @@
 spring:
   cloud:
     gateway:
+      globalcors:
+        cors-configurations:
+          "[/**]":
+            allowedOrigins: "*"
+            allowedHeaders: "*"
+            allowedMethods:
+              - GET
+              - POST
+              - PUT
+              - PATCH
+              - DELETE
       discovery:
         locator:
           enabled: true
@@ -26,7 +37,7 @@ eureka:
     hostname: localhost
   client:
     service-url:
-      defaultZone: http://backend-discovery-server:8761/eureka
+      defaultZone: http://localhost:8761/eureka
 
 management:
   endpoints:

@@ -6,6 +6,7 @@ import com.e_commerce.user_service.mapper.UserMapper;
 import com.e_commerce.user_service.repository.UserRepository;
 import com.e_commerce.user_service.service.UserService;
 import com.microservice.shared_library.service.BaseService;
+import com.microservice.shared_library.service.Impl.BaseServiceImpl;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.NotFoundException;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,7 @@ import java.util.Set;
 import java.util.UUID;
 
 @Service
-public class UserServiceImpl extends BaseService<User, UserDTO, UUID> implements UserService {
+public class UserServiceImpl extends BaseServiceImpl<User, UserDTO, UUID> implements UserService {
     private final UserRepository userRepository;
     private final UserMapper userMapper;
 
@@ -32,24 +33,6 @@ public class UserServiceImpl extends BaseService<User, UserDTO, UUID> implements
     @Transactional
     public UserDTO save(UserDTO userDTO) {
         return super.save(userDTO);
-    }
-
-    @Override
-    @Transactional
-    public UserDTO update(UserDTO userDTO) {
-        User existingUser = userRepository.findById(userDTO.getId())
-                .orElseThrow(() -> new NotFoundException("User not found"));
-        if(userDTO.getFullname() != null) {
-            existingUser.setFullname(userDTO.getFullname());
-        }
-        if(userDTO.getPhone() != null) {
-            existingUser.setPhone(userDTO.getPhone());
-        }
-        if(userDTO.getEmail() != null) {
-            existingUser.setEmail(userDTO.getEmail());
-        }
-
-        return userMapper.toDTO(userRepository.save(existingUser));
     }
 
     @Override

@@ -34,10 +34,16 @@ public class Product extends BaseEntityAudit {
     private double priceUnit;
 
     @Column(nullable = false)
+    private String unit;
+
+    @Column(nullable = false)
     private Integer quantity;
 
     @ManyToOne(optional = false)
     private Category category;
+
+    @ManyToOne(optional = false)
+    private Brand brand;
 
     @Override
     public String toString() {
@@ -47,7 +53,10 @@ public class Product extends BaseEntityAudit {
                 + description
                 + ", imageUrl=" + imageUrl
                 + ", priceUnit=" + priceUnit
+                + ", unit=" + unit
                 + ", quantity=" + quantity
+//                + ", category=" + category
+                + ", brand=" + brand
                 + super.toString() + "]";
     }
 }

@@ -1,15 +1,11 @@
 package com.ecommerce.product_service.service;
 
 import com.ecommerce.product_service.dto.ProductDTO;
+import com.ecommerce.product_service.entity.Product;
+import com.microservice.shared_library.service.BaseService;
 
-import java.util.List;
-import java.util.Set;
 import java.util.UUID;
 
-public interface ProductService {
-    ProductDTO save(ProductDTO productDTO);
+public interface ProductService extends BaseService<Product, ProductDTO, UUID> {
 
-    ProductDTO update(ProductDTO productDTO);
-
-    List<ProductDTO> findByIdPublic(Set<UUID> ids);
 }

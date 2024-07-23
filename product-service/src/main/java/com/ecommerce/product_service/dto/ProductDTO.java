@@ -23,8 +23,12 @@ public class ProductDTO extends BaseDTO {
     private String imageUrl;
 
     @NotNull(message = "Price is mandatory")
-    @Min(value = 1, message = "Minimun price must be greater or equal than 1")
+    @Min(value = 1, message = "Minimum price must be greater or equal than 1")
     private Double priceUnit;
+
+    @NotNull(message = "Unit is mandatory")
+    @Size(max = 20, message = "Unit must be less than 20 characters")
+    private String unit;
 
     @NotNull(message = "Quantity is mandatory")
     @Min(value = 1, message = "Minimum quantity must be greater or equal than 1")
@@ -32,4 +36,7 @@ public class ProductDTO extends BaseDTO {
 
     @NotNull(message = "Category is mandatory")
     private CategoryDTO category;
+
+    @NotNull(message = "Brand is mandatory")
+    private BrandDTO brand;
 }

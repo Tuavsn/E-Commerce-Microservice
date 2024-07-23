@@ -6,12 +6,13 @@ import com.ecommerce.product_service.mapper.CategoryMapper;
 import com.ecommerce.product_service.repository.CategoryRepository;
 import com.ecommerce.product_service.service.CategoryService;
 import com.microservice.shared_library.service.BaseService;
+import com.microservice.shared_library.service.Impl.BaseServiceImpl;
 import org.springframework.stereotype.Service;
 
 import java.util.UUID;
 
 @Service
-public class CategoryServiceImpl extends BaseService<Category, CategoryDTO, UUID> implements CategoryService {
+public class CategoryServiceImpl extends BaseServiceImpl<Category, CategoryDTO, UUID> implements CategoryService {
     private final CategoryRepository categoryRepository;
     private final CategoryMapper categoryMapper;
 

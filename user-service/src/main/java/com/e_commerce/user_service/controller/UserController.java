@@ -2,7 +2,7 @@ package com.e_commerce.user_service.controller;
 
 import com.e_commerce.user_service.dto.UserDTO;
 import com.e_commerce.user_service.entity.User;
-import com.e_commerce.user_service.service.impl.UserServiceImpl;
+import com.e_commerce.user_service.service.UserService;
 import com.microservice.shared_library.controller.BaseController;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -16,9 +16,9 @@ import java.util.UUID;
 @RequestMapping("/user")
 public class UserController extends BaseController<User, UserDTO, UUID> {
 
-    private final UserServiceImpl userService;
+    private final UserService userService;
 
-    public UserController(UserServiceImpl userService) {
+    public UserController(UserService userService) {
         super(userService);
         this.userService = userService;
     }
@@ -41,6 +41,6 @@ public class UserController extends BaseController<User, UserDTO, UUID> {
     @PatchMapping("/{id}")
     public ResponseEntity<UserDTO> updateUser(@PathVariable UUID id, @RequestBody UserDTO userDTO) {
         userDTO.setId(id);
-        return new ResponseEntity<>(userService.update(userDTO), HttpStatus.OK);
+        return new ResponseEntity<>(userService.save(userDTO), HttpStatus.OK);
     }
 }

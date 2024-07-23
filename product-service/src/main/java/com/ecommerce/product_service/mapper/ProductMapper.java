@@ -9,7 +9,7 @@ import org.mapstruct.Named;
 import java.util.List;
 import java.util.UUID;
 
-@Mapper(componentModel = "spring")
+@Mapper(componentModel = "spring", uses = {CategoryMapper.class, BrandMapper.class})
 public interface ProductMapper extends BaseMapper<Product, ProductDTO, UUID> {
     @Named("productToProductDTO")
     @Override
